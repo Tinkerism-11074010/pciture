@@ -4,20 +4,20 @@ from PIL import Image
 import requests
 from io import BytesIO
 
-# 缓存数据加载过程
-@st.cache
-def load_data(file_path):
-    return pd.read_excel(file_path)
+# # 缓存数据加载过程
+# @st.cache
+# def load_data(file_path):
+#     return pd.read_excel(file_path)
 
-# 缓存图片加载过程
-@st.cache
-def load_image(image_url):
-    try:
-        response = requests.get(image_url)
-        img = Image.open(BytesIO(response.content))
-        return img
-    except Exception as e:
-        return None
+# # 缓存图片加载过程
+# @st.cache
+# def load_image(image_url):
+#     try:
+#         response = requests.get(image_url)
+#         img = Image.open(BytesIO(response.content))
+#         return img
+#     except Exception as e:
+#         return None
 
 uploaded_file = st.file_uploader("选择一个 Excel 文件", type=["xlsx", "xls"])
 
