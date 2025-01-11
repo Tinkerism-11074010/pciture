@@ -27,13 +27,16 @@ response = requests.get(github_file_url)
 file_content = BytesIO(response.content)
 df = pd.read_excel(file_content)
 
-# 获取所有类别列表
-categories = df['聚类类别'].unique()
+# 获取类别计数
+category_counts = df['聚类类别'].value_counts()
+
+# 根据计数排序类别
+sorted_categories = category_counts.index.tolist()
 # 显示标题
 st.title('图片与聚类类别看板')
 
 # 使用 selectbox 让用户选择聚类类别
-selected_category = st.selectbox('选择一个聚类类别：', categories)
+selected_category = st.selectbox('选择一个聚类类别：', sorted_categories)
 
 # 过滤选中的类别的数据
 filtered_df = df[df['聚类类别'] == selected_category]
