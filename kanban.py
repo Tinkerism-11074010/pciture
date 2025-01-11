@@ -19,9 +19,10 @@ from io import BytesIO
 #     except Exception as e:
 #         return None
 
-uploaded_file = st.file_uploader("选择一个 Excel 文件", type=["xlsx", "xls"])
-
-df = pd.read_excel(uploaded_file)#[columns_filter]
+# GitHub 文件 URL
+github_file_url = "https://raw.githubusercontent.com/Tinkerism-11074010/pciture/streamlit专用-阉割版.xlsx"
+file_content = BytesIO(response.content)
+df = pd.read_excel(file_content)
 
 # 获取所有类别列表
 categories = df['聚类类别'].unique()
