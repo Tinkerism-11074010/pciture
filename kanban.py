@@ -19,9 +19,11 @@ def load_image(image_url):
     except Exception as e:
         return None
 
-# 读取 Excel 文件
-output_path =r"商品数据聚类结果-卖家精灵.xlsx"
-df = pd.read_excel(output_path)
+uploaded_file = st.file_uploader("选择一个 Excel 文件", type=["xlsx", "xls"])
+
+if uploaded_file is not None:
+    columns_filter = ['聚类类别','商品主图','商品详情页链接','商品标题']
+    df = pd.read_excel(uploaded_file)[columns_filter]
 
 # 获取所有类别列表
 categories = df['聚类类别'].unique()
