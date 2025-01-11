@@ -25,7 +25,7 @@ github_file_url = "https://raw.githubusercontent.com/Tinkerism-11074010/pciture/
 # 发送 GET 请求
 response = requests.get(github_file_url)
 file_content = BytesIO(response.content)
-df = pd.read_excel(file_content)
+df = pd.read_excel(file_content,sheet_name='唯一数据')
 
 # 获取类别计数
 category_counts = df['聚类类别'].value_counts()
