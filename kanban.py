@@ -20,7 +20,7 @@ from io import BytesIO
 #         return None
 
 # GitHub 文件 URL
-github_file_url = "https://github.com/Tinkerism-11074010/pciture/blob/main/streamlit专用-阉割版.xlsx"
+github_file_url = "https://raw.githubusercontent.com/Tinkerism-11074010/pciture/blob/main/streamlit专用-阉割版.xlsx"
 
 # 发送 GET 请求
 response = requests.get(github_file_url)
